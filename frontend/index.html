@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered resume analyzer - Categorize and screen resumes automatically">
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">📄</span>
+                    AI Resume Analyzer
+                </h1>
+                <p class="tagline">Intelligent Resume Screening & Categorization</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="card">
+                    <h2>Upload Your Resume</h2>
+                    
+                    <!-- Tab Navigation -->
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="upload">Upload File</button>
+                        <button class="tab-btn" data-tab="paste">Paste Text</button>
+                    </div>
+
+                    <!-- Upload Tab Content -->
+                    <div id="upload" class="tab-content active">
+                        <div class="upload-area">
+                            <div class="upload-icon">📁</div>
+                            <h3>Drag and drop your resume here</h3>
+                            <p>or click to browse</p>
+                            <input 
+                                type="file" 
+                                id="fileInput" 
+                                accept=".pdf,.doc,.docx,.txt" 
+                                class="file-input"
+                            >
+                            <div class="file-formats">
+                                <small>Supported formats: PDF, DOC, DOCX, TXT</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paste Tab Content -->
+                    <div id="paste" class="tab-content">
+                        <textarea 
+                            id="textInput" 
+                            class="resume-textarea"
+                            placeholder="Paste your resume text here...&#10;Include skills, experience, education, and other relevant information."
+                        ></textarea>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="button-group">
+                        <button id="analyzeBtn" class="btn btn-primary">
+                            <span class="btn-icon">🚀</span>
+                            Analyze Resume
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary">
+                            Clear
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner hidden">
+                <div class="spinner"></div>
+                <p>Analyzing your resume...</p>
+            </div>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="card results-card">
+                    <h2>Analysis Results</h2>
+                    
+                    <!-- Primary Result -->
+                    <div class="result-main">
+                        <div class="category-display">
+                            <span class="category-label">Detected Job Category</span>
+                            <h3 id="categoryResult" class="category-name">-</h3>
+                            <div id="confidenceBar" class="confidence-bar">
+                                <div id="confidenceFill" class="confidence-fill"></div>
+                            </div>
+                            <span id="confidenceText" class="confidence-text">-</span>
+                        </div>
+                    </div>
+
+                    <!-- Resume Preview -->
+                    <div class="resume-preview">
+                        <h3>Resume Content</h3>
+                        <div id="resumePreview" class="preview-text"></div>
+                    </div>
+
+                    <!-- Additional Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">Character Count</span>
+                            <span id="charCount" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Word Count</span>
+                            <span id="wordCount" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Processing Time</span>
+                            <span id="processingTime" class="stat-value">0ms</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="results-buttons">
+                        <button id="downloadBtn" class="btn btn-primary">
+                            <span class="btn-icon">📥</span>
+                            Download Result
+                        </button>
+                        <button id="newAnalysisBtn" class="btn btn-secondary">
+                            New Analysis
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message hidden">
+                <span class="error-close">&times;</span>
+                <span id="errorText"></span>
+            </div>
+
+            <!-- Info Section -->
+            <section class="info-section">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>How it works</h3>
+                        <p>Our AI model analyzes your resume and categorizes it based on skills, experience, and qualifications into predefined job categories.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Supported Categories</h3>
+                        <p>Data Science, Web Development, DevOps, Business Analysis, and more. The model identifies the best matching category for your resume.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Privacy & Security</h3>
+                        <p>Your resume data is processed securely and is not stored on our servers. We respect your privacy and data security.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 AI Resume Analyzer. Built with <span class="heart">❤</span> for better recruitment.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
